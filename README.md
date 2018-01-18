@@ -28,7 +28,7 @@ Presented example is very simple "Hello blinky" program for STM32F0xx which blin
 - arm-gcc for embedded [download here](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads)
 - [cmake](https://cmake.org/download/)
 
-- no need any dependencies like CMSIS library for building of this example.
+*this don't need any other dependencies like CMSIS library for building. Example is real bare metal code.*
 
 ## Building
 
