@@ -1,4 +1,4 @@
-# Bare metal example for ARM cortex-M using C++
+# Bare metal for ARM cortex-M using C++
 
 This example show how to write simple startup code in C++ and use Cmake for building.
 Presented example is very simple "Hello blinky" program for STM32F0xx which blink LED connected to GPIO A15 and blink on maximum speed (no delay or timers are used).
