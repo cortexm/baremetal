@@ -60,4 +60,6 @@ add_executable(${PROJECT_NAME}.elf
     src/startup/handlers_cm
 )
 
+set_target_properties(${PROJECT_NAME}.elf PROPERTIES LINK_DEPENDS ${CMAKE_SOURCE_DIR}/${LINKER_SCRIPT})
+
 include("cmake/flash.cmake")
