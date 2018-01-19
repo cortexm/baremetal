@@ -1,7 +1,7 @@
 // define used registers
-#define RCC_AHB1 *(volatile unsigned *)(0x40021014)
-#define GPIOA_MODER *(volatile unsigned *)(0x48000000)
-#define GPIOA_BSRR *(volatile unsigned *)(0x48000018)
+static volatile unsigned &RCC_AHB1 = *reinterpret_cast<unsigned *>(0x40021014);
+static volatile unsigned &GPIOA_MODER = *reinterpret_cast<unsigned *>(0x48000000);
+static volatile unsigned &GPIOA_BSRR = *reinterpret_cast<unsigned *>(0x48000018);
 
 // application
 void main_app() {
