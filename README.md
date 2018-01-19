@@ -20,7 +20,8 @@ Presented example is very simple "Hello blinky" program for STM32F0xx which blin
 
 - `CmakeLists.txt` is Cmake building script
 - `src` folder contain application code
-- `src/startup` folder contain all startup code + linker script
+- `src/startup` folder contain all startup code
+- `ld` folder contain linker scripts
 - `cmake/arm-none-eabi.cmake` is platform file which define compilers and configuration for this project
 
 ## Dependencies

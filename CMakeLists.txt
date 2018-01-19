@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.0)
 project(bare_metal)
 
 # select linker script
-set(LINKER_SCRIPT "src/startup/stm32f031x6.ld")
+set(LINKER_SCRIPT "ld/stm32f031x6.ld")
 
 add_compile_options(
     -Wall
