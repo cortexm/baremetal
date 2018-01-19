@@ -14,7 +14,7 @@ add_compile_options(
     -ffunction-sections
 )
 
-# define compiler options more info in: tools/gcc-arm/share/doc/gcc-arm-none-eabi/readme.txt
+# define compiler options more info in: gcc-arm directory: share/doc/gcc-arm-none-eabi/readme.txt
 set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m0")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${CPU_OPTIONS}")
