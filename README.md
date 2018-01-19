@@ -3,18 +3,18 @@
 This example show how to write simple startup code in C++ and use Cmake for building.
 Presented example is very simple "Hello blinky" program for STM32F0xx which blink LED connected to GPIO A15 and blink on maximum speed (no delay or timers are used).
 
-## C++ advantages for embedded
+## C++ benefits for embedded
 
-- Possible to use latest standards (C++17)
-- Very small compiled code (comparable with C)
+- C++ provides many advantages over C, like OOP, namespaces, templates, overloading, references, ...
+- Also allow to write very clean and readable source code and very efficient final code
 
 ### Limitations, or not recommended C++ features in embedded
 
 - Do not use new and delete (unless you define your own on heap or in static array - memory pool)
 - No exceptions are allowed and also no components which using exceptions (like most of `std::`, ...)
-- no RTTI, ..
+- No RTTI, ..
 
-*Everything from this is also possible to use, but then is necessary to implement some stub functions for heap management and basic IO for `newlib`, after program can be much bigger in memory (often more than 80KB).*
+*Everything from this is also possible to use, but then is necessary to implement some stub functions for heap management and basic IO for `newlib`. Final compiled program can be much bigger in memory (often more than 80KB) and this also brings some overhead, which is often useless in embedded applications.*
 
 ## Code structure
 
