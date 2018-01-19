@@ -49,7 +49,6 @@ in file CmakeLists.txt change CPU_OPTIONS:
     - Cortex-M0+ `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m0plus")`
     - Cortex-M3 `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m3")`
     - Cortex-M4 `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m4")`
-    - Cortex-M4 hard float `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m4")`
     - Cortex-M7 `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m7")`
     - Cortex-M23: `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m23")`
     - Cortex-M33: `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m33")`
@@ -62,5 +61,5 @@ in file CmakeLists.txt change CPU_OPTIONS:
     - Cortex-M7 and M33 single-precision `-mfpu=fpv5-sp-d16`
     - Cortex-M7 and M33 signle and double-precision `-mfpu=fpv5-d16`
 
-detailed info about options is in readme: gcc-arm directory: share/doc/gcc-arm-none-eabi/readme.txt
-or https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html
+*Detailed info about options is in readme: gcc-arm directory: share/doc/gcc-arm-none-eabi/readme.txt
+or in [ARM-Options](https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html) document*
