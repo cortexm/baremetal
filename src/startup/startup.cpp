@@ -9,6 +9,8 @@ extern unsigned _data_end;
 extern unsigned _bss_start;
 extern unsigned _bss_end;
 
+extern unsigned _heap_start;
+
 extern unsigned _init_array_start;
 extern unsigned _init_array_end;
 
@@ -18,48 +20,54 @@ extern unsigned _fini_array_end;
 // main application
 extern void main_app();
 
-// reset handler
-void RESET_handler() {
-    unsigned *src, *dst;
-
-    // copy data
-    src = &_data_load;
-    dst = &_data_start;
+void copy_data() {
+    unsigned *src = &_data_load;
+    unsigned *dst = &_data_start;
     while (dst < &_data_end) {
         *dst++ = *src++;
     }
+}
 
-    // zero bss
-    dst = &_bss_start;
+void zero_bss() {
+    unsigned *dst = &_bss_start;
     while (dst < &_bss_end) {
         *dst++ = 0;
     }
+}
 
-    // get current stack pointer
+void fill_heap(unsigned fill=0x55555555) {
+    unsigned *dst = &_heap_start;
     register unsigned *msp_reg;
     __asm__("mrs %0, msp\n" : "=r" (msp_reg) );
-
-    // fill unused SRAM
-    dst = &_bss_end;
     while (dst < msp_reg) {
-        *dst++ = 0x55555555;
+        *dst++ = fill;
     }
+}
 
-    // call constructors for static instances
-    dst = &_init_array_start;
-    while (dst < &_init_array_end) {
-        ((void (*)())*dst++)();
+void call_ctors() {
+    unsigned *tbl = &_init_array_start;
+    while (tbl < &_init_array_end) {
+        ((void (*)())*tbl++)();
     }
+}
 
+void call_dtors() {
+    unsigned *tbl = &_fini_array_start;
+    while (tbl < &_fini_array_end) {
+        ((void (*)())*tbl++)();
+    }
+}
+
+// reset handler
+void RESET_handler() {
+    copy_data();
+    zero_bss();
+    fill_heap();
+    call_ctors();
     // run application
     main_app();
-
     // call destructors for static instances
-    dst = &_fini_array_start;
-    while (dst < &_fini_array_end) {
-        ((void (*)())*dst++)();
-    }
-
+    call_dtors();
     // stop
     while (true);
 }
