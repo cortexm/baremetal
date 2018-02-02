@@ -5,9 +5,12 @@ SECTIONS {
         KEEP(*(.vectors))
         KEEP(*(.vectors*))
         KEEP(*(.text))
+        . = ALIGN(4);
         *(.text*)
+        . = ALIGN(4);
         KEEP(*(.rodata))
         *(.rodata*)
+        . = ALIGN(4);
     } >FLASH
 
     .init_array ALIGN(4): {
