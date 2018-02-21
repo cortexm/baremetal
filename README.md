@@ -36,11 +36,13 @@ Presented example is very simple "Hello blinky" program for STM32F0xx which blin
 ```
 mkdir _build
 cd _build
-cmake -D CMAKE_TOOLCHAIN_FILE=../cmake/arm-none-eabi.cmake ..
+cmake -D CMAKE_TOOLCHAIN_FILE=../cmake/arm-none-eabi.cmake -D CMAKE_BUILD_TYPE=Release ..
 make
 ```
 
-or use `make bin`, `srec`, `hex`, `flash`, ...
+change `CMAKE_BUILD_TYPE=Debug` to build debug version.
+
+You can use also `make bin`, `srec`, `hex`, `flash`, ...
 
 ## Change architecture
 
