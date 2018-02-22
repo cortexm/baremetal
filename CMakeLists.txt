@@ -6,6 +6,9 @@ project(baremetal)
 # select linker script
 set(LINKER_SCRIPT "ld/stm32f031x6.ld")
 
+# define CPU OPTIONS
+set(CPU_OPTIONS -mthumb -mcpu=cortex-m0)
+
 # optimizations (-O0 -O1 -O2 -O3 -Os -Ofast -Og -flto)
 set(CMAKE_C_FLAGS_DEBUG "-Og -g -DDEBUG")
 set(CMAKE_CXX_FLAGS_DEBUG "-Og -g")
@@ -13,7 +16,7 @@ set(CMAKE_C_FLAGS_RELEASE "-Os -flto")
 set(CMAKE_CXX_FLAGS_RELEASE "-Os -flto")
 
 add_compile_options(
-    -mthumb -mcpu=cortex-m0  # define CPU type
+    ${CPU_OPTIONS}
     $<$<COMPILE_LANGUAGE:C>:-std=c11>
     $<$<COMPILE_LANGUAGE:CXX>:-std=c++14>
     $<$<COMPILE_LANGUAGE:CXX>:-fms-extensions>
@@ -45,6 +48,7 @@ add_executable(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
+    ${CPU_OPTIONS}
     -T${LINKER_SCRIPT}
     -nostartfiles
     # -nostdlib
