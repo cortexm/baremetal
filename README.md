@@ -48,13 +48,13 @@ You can use also `make bin`, `srec`, `hex`, `flash`, ...
 
 in file CmakeLists.txt change CPU_OPTIONS:
 - architecture options:
-    - Cortex-M0: `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m0")`
-    - Cortex-M0+ `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m0plus")`
-    - Cortex-M3 `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m3")`
-    - Cortex-M4 `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m4")`
-    - Cortex-M7 `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m7")`
-    - Cortex-M23: `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m23")`
-    - Cortex-M33: `set(CPU_OPTIONS "${CPU_OPTIONS} -mthumb -mcpu=cortex-m33")`
+    - Cortex-M0: `set(CPU_OPTIONS -mthumb -mcpu=cortex-m0)`
+    - Cortex-M0+ `set(CPU_OPTIONS -mthumb -mcpu=cortex-m0plus)`
+    - Cortex-M3 `set(CPU_OPTIONS -mthumb -mcpu=cortex-m3)`
+    - Cortex-M4 `set(CPU_OPTIONS -mthumb -mcpu=cortex-m4)`
+    - Cortex-M7 `set(CPU_OPTIONS -mthumb -mcpu=cortex-m7)`
+    - Cortex-M23: `set(CPU_OPTIONS -mthumb -mcpu=cortex-m23)`
+    - Cortex-M33: `set(CPU_OPTIONS -mthumb -mcpu=cortex-m33)`
 
 - floating point, add options to CPU_OPTIONS:
     - soft float `-mfloat-abi=softfp`
