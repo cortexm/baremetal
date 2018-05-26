@@ -14,14 +14,14 @@ SECTIONS {
     } >FLASH
 
     .init_array ALIGN(4): {
-        _init_array_start = .;
+        __init_array_start = .;
         KEEP(*(.init_array))
-        _init_array_end = .;
+        __init_array_end = .;
     } >FLASH
 
     .fini_array ALIGN(4): {
-        _fini_array_start = .;
+        __fini_array_start = .;
         KEEP(*(.fini_array))
-        _fini_array_end = .;
+        __fini_array_end = .;
     } >FLASH
 }

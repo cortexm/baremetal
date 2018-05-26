@@ -22,7 +22,7 @@ __attribute__((weak, alias("__stop"))) void SYSTICK_handler();
 __attribute__((weak, alias("__stop"))) void DUMMY_handler();
 
 // vector table for handlers
-__attribute__((section(".vectors"), used)) void (*isr_vectors[])() = {
+__attribute__((section(".vectors"), used)) void (*__isr_vectors[])() = {
     RESET_handler,
     NMI_handler,
     HARDFAULT_handler,

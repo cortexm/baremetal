@@ -51,6 +51,7 @@ target_link_libraries(${PROJECT_NAME}
     ${CPU_OPTIONS}
     -T${LINKER_SCRIPT}
     -nostartfiles
+    m
     # -nostdlib
 )
 
