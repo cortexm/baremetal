@@ -1,12 +1,17 @@
-// handlers definition code
+/**
+ * Handlers setup code for Cortex-M.
+ */
 
-// undefined handler point to this function, this stop MCU
-// this function name must by not mangled, so must be C
+typedef void (*ptr_func_t)();
+
+// Undefined handler is pointing to this function, this stop MCU.
+// This function name must by not mangled, so must be C,
+// because alias("..") is working only with C code
 extern "C" void __stop() { while (true); }
 
-// handlers for cortex-M core
-// these handler are 'weak' and can be overwritten by non-week function
-// default is __stop() function
+// Handlers for Cortex-M core.
+// These handler are with attribute 'weak' and can be overwritten
+// by non-week function, default is __stop() function
 __attribute__((weak, alias("__stop"))) void RESET_handler();
 __attribute__((weak, alias("__stop"))) void NMI_handler();
 __attribute__((weak, alias("__stop"))) void HARDFAULT_handler();
@@ -18,11 +23,12 @@ __attribute__((weak, alias("__stop"))) void DEBUGMONITOR_handler();
 __attribute__((weak, alias("__stop"))) void PENDSV_handler();
 __attribute__((weak, alias("__stop"))) void SYSTICK_handler();
 
-// dummy handler
+// Dummy handler (for unused vectors)
 __attribute__((weak, alias("__stop"))) void DUMMY_handler();
 
-// vector table for handlers
-__attribute__((section(".vectors"), used)) void (*__isr_vectors[])() = {
+// Vector table for handlers
+// This array will be placed in ".vectors" section defined in linker script.
+__attribute__((section(".vectors"), used)) ptr_func_t __isr_vectors[] = {
     RESET_handler,
     NMI_handler,
     HARDFAULT_handler,

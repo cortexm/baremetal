@@ -18,17 +18,29 @@ set(CMAKE_CXX_FLAGS_RELEASE "-Os -flto")
 add_compile_options(
     ${CPU_OPTIONS}
     $<$<COMPILE_LANGUAGE:C>:-std=c11>
-    $<$<COMPILE_LANGUAGE:CXX>:-std=c++14>
+    $<$<COMPILE_LANGUAGE:CXX>:-std=c++17>
     $<$<COMPILE_LANGUAGE:CXX>:-fms-extensions>
     $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
     $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
     $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
     $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
-    -Wall
-    -pedantic
-    -Wextra
     -fstrict-volatile-bitfields
     -ffunction-sections
+    -fno-threadsafe-statics
+
+    -Werror
+    -Wall
+    -Wextra
+    -Wcast-align
+    -Wconversion
+    -Wsign-conversion
+    -Wold-style-cast
+    -Wshadow
+    -Wlogical-op
+    -Wsuggest-override
+    -Wsuggest-final-types
+    -Wsuggest-final-methods
+    -pedantic
 )
 
 include_directories(
