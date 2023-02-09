@@ -51,12 +51,12 @@ link_directories(
     ${CMAKE_SOURCE_DIR}
 )
 
-# list of modules to build final firmware (without extension .c or .cpp)
+# list of modules to build final firmware
 add_executable(${PROJECT_NAME}
-    src/main
-    src/startup/startup
-    src/startup/stack
-    src/startup/handlers_cm
+    src/main.cpp
+    src/startup/startup.cpp
+    src/startup/stack.cpp
+    src/startup/handlers_cm.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
